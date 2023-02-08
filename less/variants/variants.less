@@ -1,54 +1,66 @@
+variants {
+    display: grid;
+    place-items: center;
+}
+
 .variants {
-    position: relative;
-    margin-left: 30%;
-    padding-top: 40px;
-    display: inline-block;
-    vertical-align: top;
-    padding-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-gap: 30px;
+    padding: 30px;
 }
 
 .variants__column {
     cursor: pointer;
-    background: #fff;
-    box-shadow: 3px 3px 5px 0 rgba(0,0,0,0.25);
-    border-radius: @border-radius;
-    padding: 20px 0;
-    width: 300px;
-    margin: 0 15px;
-    display: inline-block;
+    box-shadow: 0px 55px 80px rgba(1, 85, 174, 0.07), 0px 12.285px 17.869px rgba(1, 85, 174, 0.0417275), 0px 3.65756px 5.32008px rgba(1, 85, 174, 0.1582725);
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    padding: 25px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
     vertical-align: top;
-    transition: 0.5s;
+    transition: 0.15s;
 
     &:hover {
-        background: #f0fcff
+        box-shadow: 0px 55px 80px rgba(1, 85, 174, 0.11), 0px 12.285px 17.869px rgba(1, 85, 174, 0.3), 0px 3.65756px 5.32008px rgba(1, 85, 174, 0.05);
     }
 }
 
 .variants__column__header {
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 300;
     text-align: center;
     width: 100%;
-    color: #c0c0c0;
-    padding-bottom: 50px;
+    color: #052E81;
+    padding-bottom: 30px;
 }
 
 .variants__column__final-price {
-    padding: 0 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: #052E81;
+    padding: 0 15px 15px 15px;
 }
 
 .variants__column__price-before-discount {
-    padding-bottom: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex: 1;
     padding-left: 15px;
     padding-right: 15px;
 }
 
 .variants__column__final-price__label {
-    display: inline-block;
     font-size: 25px;
+    padding-top: 10px;
 }
 
 .variants__column__final-price__value {
+    border-top: thin solid @color-blue-light;
+    padding-top: 10px;
     font-size: 25px;
     font-weight: bold;
     float: right;

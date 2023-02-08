@@ -1,10 +1,12 @@
 .main {
     min-width: 1330px;
+    display: grid;
+    grid-template-columns: max-content auto;
 }
 
 ::-webkit-scrollbar
 {
-    width: 12px;
+    width: 0;
 }
 
 ::-webkit-scrollbar-track
@@ -15,4 +17,23 @@
 ::-webkit-scrollbar-thumb
 {
     background: @color-gray-dark;
+}
+
+.loading-spinner {
+    animation: fade-in .2s;
+    position: fixed;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255, .8);
+}
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

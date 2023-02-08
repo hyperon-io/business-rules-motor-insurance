@@ -1,14 +1,17 @@
 .sidebar-container {
-    position: fixed;
+    position: sticky;
     top:0;
     bottom: 0;
     overflow-y: scroll;
-    width: 300px;
-    border-right: 1px solid @color-border;
+    width: 390px;
+    height: 100vh;
     background: #fff;
     margin-left: -15px;
     display: inline-block;
     transition: 0.5s;
+    padding: 0 1rem;
+    box-shadow: 0px 55px 80px rgba(1, 85, 174, 0.07), 0px 12.285px 17.869px rgba(1, 85, 174, 0.0417275), 0px 3.65756px 5.32008px rgba(1, 85, 174, 0.0282725);
+    overflow-x: hidden;
 }
 
 .sidebar-container--hidden {
@@ -20,9 +23,6 @@
     .sidebar-container__divider {
         opacity: 0;
     };
-    .sidebar-container__header__hyperon-hamburger {
-        margin-left: 12px;
-    }
 }
 
 .sidebar-container__widget,
@@ -32,40 +32,36 @@
 }
 
 .sidebar-container__header {
-    box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.25);
     padding: 20px 15px 15px 15px;
 }
 
 .sidebar-container__header__hyperon-logo {
-    background: url('../imgs/logo-insurance-app.svg');
-    background-size: 206px 38px;
-    width: 206px;
-    height: 38px;
-    background-repeat: no-repeat;
-    display: inline-block;
-}
-
-.sidebar-container__header__hyperon-hamburger {
-    cursor: pointer;
-    color: @color-blue;
-    float: right;
-    font-size: 26px;
-    padding-top: 2px;
+    background: url('../imgs/interrisk-logo.png') no-repeat;
+    height: 46px;
+    width: 400px;
+    background-size: contain;
+    display: block;
+    transform: scale(1.12);
 }
 
 .sidebar-container__divider {
     width: 100%;
-    border-bottom: 1px solid @color-border;
-    margin-top: 50px;
+    border-bottom: 1px solid @color-blue-light;
+    margin-top: 20px;
     margin-bottom: 30px;
     text-align: center;
 }
 
 .sidebar-container__divider__icon {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    column-gap: 15px;
     width: 100%;
-    font-size: 26px;
+    font-size: 20px;
     color: @color-blue;
     padding-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .sidebar-container__widget {

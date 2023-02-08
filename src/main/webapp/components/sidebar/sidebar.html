@@ -1,14 +1,11 @@
 <div class="sidebar-container" ng-class="{'sidebar-container--hidden': ctrl.sidebarHidden}">
-    <div class="sidebar-container__header">
+    <div class="sidebar-container__header" ng-click="ctrl.toggleSidebar()">
         <div class="sidebar-container__header__hyperon-logo"></div>
-        <div class="sidebar-container__header__hyperon-hamburger" ng-click="ctrl.toggleSidebar()">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
     </div>
 
     <div class="sidebar-container__divider">
         <div class="sidebar-container__divider__icon">
-            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="sidebar-container__divider__label">Driver</span>
         </div>
     </div>
 
@@ -18,7 +15,7 @@
 
     <div class="sidebar-container__divider">
         <div class="sidebar-container__divider__icon">
-            <i class="fa fa-car" aria-hidden="true"></i>
+            <span class="sidebar-container__divider__label">Vehicle</span>
         </div>
     </div>
 
@@ -28,7 +25,7 @@
 
     <div class="sidebar-container__divider">
         <div class="sidebar-container__divider__icon">
-            <i class="fa fa-file" aria-hidden="true"></i>
+            <span class="sidebar-container__divider__label">Other</span>
         </div>
     </div>
 

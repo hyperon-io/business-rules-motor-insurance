@@ -1,4 +1,39 @@
 @font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLPTedw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLFj_V1s.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8V1s.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7V1s.ttf) format('truetype');
+}
+@font-face {
   font-family: 'Open Sans';
   font-weight: 300;
   font-style: normal;
@@ -2406,10 +2441,12 @@
   clip: auto;
 }
 body {
-  font-family: "Open Sans";
-  background: #f2f2f2;
+  font-family: "Poppins";
+  background: url('../imgs/clouds.png') no-repeat;
+  background-size: cover;
   color: #333;
   font-size: 13px;
+  min-height: 100vh;
 }
 .common-subsection-heading {
   font-size: 11px;
@@ -2425,7 +2462,7 @@ body {
   position: relative;
 }
 .common-input-default__label {
-  color: #1b8ccc;
+  color: #052E81;
   font-size: 9px;
   text-transform: uppercase;
   position: absolute;
@@ -2437,7 +2474,7 @@ body {
 }
 .common-input-default__input {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   padding: 12px 15px 10px 15px;
   margin-bottom: 20px;
@@ -2447,7 +2484,7 @@ body {
 }
 .common-input-default__select {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   padding: 12px 39px 10px 15px;
   margin-bottom: 20px;
@@ -2465,14 +2502,22 @@ body {
 }
 .common-btn-group {
   width: 100%;
-  border-radius: 4px;
   border: 1px solid #ccc;
+  border-radius: 8px;
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
 }
 .common-btn-group button:not(:first-child) {
   border-left: 1px solid #ccc;
+}
+.common-btn-group button:nth-of-type(1) {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.common-btn-group button:nth-of-type(2) {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .common-btn-group .active {
   background: #f2f2f2;
@@ -2495,7 +2540,7 @@ body {
   vertical-align: middle;
 }
 .common-btn-group__btn:hover {
-  background: #1b8ccc;
+  background: #052E81;
   color: #fff;
   font-weight: bold;
 }
@@ -2531,13 +2576,24 @@ body {
   margin-top: 1px;
 }
 .common-tooltip {
+  background-color: #052E81;
+  border-radius: 12px;
   width: 300px;
+  padding: 16px;
+}
+tip-arrow {
+  border-right: 6px solid #052E81 !important;
+}
+tooltip {
+  width: 100%;
 }
 .main {
   min-width: 1330px;
+  display: grid;
+  grid-template-columns: max-content auto;
 }
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 0;
 }
 ::-webkit-scrollbar-track {
   background: #f2f2f2;
@@ -2545,17 +2601,36 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #333;
 }
-.sidebar-container {
+.loading-spinner {
+  animation: fade-in 0.2s;
   position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.sidebar-container {
+  position: sticky;
   top: 0;
   bottom: 0;
   overflow-y: scroll;
-  width: 300px;
-  border-right: 1px solid #ccc;
+  width: 390px;
+  height: 100vh;
   background: #fff;
   margin-left: -15px;
   display: inline-block;
   transition: 0.5s;
+  padding: 0 1rem;
+  box-shadow: 0px 55px 80px rgba(1, 85, 174, 0.07), 0px 12.285px 17.869px rgba(1, 85, 174, 0.0417275), 0px 3.65756px 5.32008px rgba(1, 85, 174, 0.0282725);
+  overflow-x: hidden;
 }
 .sidebar-container--hidden {
   margin-left: -265px;
@@ -2566,45 +2641,39 @@ body {
 .sidebar-container--hidden .sidebar-container__divider {
   opacity: 0;
 }
-.sidebar-container--hidden .sidebar-container__header__hyperon-hamburger {
-  margin-left: 12px;
-}
 .sidebar-container__widget,
 .sidebar-container__divider {
   opacity: 1;
   transition: 0.5s;
 }
 .sidebar-container__header {
-  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.25);
   padding: 20px 15px 15px 15px;
 }
 .sidebar-container__header__hyperon-logo {
-  background: url('../imgs/logo-insurance-app.svg');
-  background-size: 206px 38px;
-  width: 206px;
-  height: 38px;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-.sidebar-container__header__hyperon-hamburger {
-  cursor: pointer;
-  color: #1b8ccc;
-  float: right;
-  font-size: 26px;
-  padding-top: 2px;
+  background: url('../imgs/interrisk-logo.png') no-repeat;
+  height: 46px;
+  width: 400px;
+  background-size: contain;
+  display: block;
+  transform: scale(1.12);
 }
 .sidebar-container__divider {
   width: 100%;
-  border-bottom: 1px solid #ccc;
-  margin-top: 50px;
+  border-bottom: 1px solid #acc8fd;
+  margin-top: 20px;
   margin-bottom: 30px;
   text-align: center;
 }
 .sidebar-container__divider__icon {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  column-gap: 15px;
   width: 100%;
-  font-size: 26px;
-  color: #1b8ccc;
+  font-size: 20px;
+  color: #052E81;
   padding-bottom: 5px;
+  text-transform: uppercase;
 }
 .sidebar-container__widget {
   padding: 0 15px;
@@ -2616,12 +2685,10 @@ body {
 .coverage__header {
   font-size: 16px;
   font-weight: bold;
-  font-style: italic;
 }
 .coverage__divider {
   width: 100%;
-  height: 1px;
-  background: #f2f2f2;
+  border-top: thin solid #acc8fd;
   margin: 10px 0;
 }
 .coverage__text {
@@ -2632,10 +2699,6 @@ body {
   font-size: 16px;
   font-weight: bold;
   float: right;
-}
-.discounts {
-  border-top: 1px solid #f2f2f2;
-  border-bottom: 1px solid #f2f2f2;
 }
 .discounts__table-container {
   padding: 10px 15px;
@@ -2659,50 +2722,61 @@ body {
 .discounts__table-container__table:last-child td {
   padding-bottom: 0;
 }
+variants {
+  display: grid;
+  place-items: center;
+}
 .variants {
-  position: relative;
-  margin-left: 30%;
-  padding-top: 40px;
-  display: inline-block;
-  vertical-align: top;
-  padding-left: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-gap: 30px;
+  padding: 30px;
 }
 .variants__column {
   cursor: pointer;
-  background: #fff;
-  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-  padding: 20px 0;
-  width: 300px;
-  margin: 0 15px;
-  display: inline-block;
+  box-shadow: 0px 55px 80px rgba(1, 85, 174, 0.07), 0px 12.285px 17.869px rgba(1, 85, 174, 0.0417275), 0px 3.65756px 5.32008px rgba(1, 85, 174, 0.1582725);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 25px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
   vertical-align: top;
-  transition: 0.5s;
+  transition: 0.15s;
 }
 .variants__column:hover {
-  background: #f0fcff;
+  box-shadow: 0px 55px 80px rgba(1, 85, 174, 0.11), 0px 12.285px 17.869px rgba(1, 85, 174, 0.3), 0px 3.65756px 5.32008px rgba(1, 85, 174, 0.05);
 }
 .variants__column__header {
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: 300;
   text-align: center;
   width: 100%;
-  color: #c0c0c0;
-  padding-bottom: 50px;
+  color: #052E81;
+  padding-bottom: 30px;
 }
 .variants__column__final-price {
-  padding: 0 15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  color: #052E81;
+  padding: 0 15px 15px 15px;
 }
 .variants__column__price-before-discount {
-  padding-bottom: 15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex: 1;
   padding-left: 15px;
   padding-right: 15px;
 }
 .variants__column__final-price__label {
-  display: inline-block;
   font-size: 25px;
+  padding-top: 10px;
 }
 .variants__column__final-price__value {
+  border-top: thin solid #acc8fd;
+  padding-top: 10px;
   font-size: 25px;
   font-weight: bold;
   float: right;

@@ -41,5 +41,5 @@ gulp.task('less', function() {
 gulp.task('default', gulp.series('less', 'prepare:libs'));
 
 gulp.task('watch', function() {
-    gulp.watch(paths.less, ['less']);
+    gulp.watch(paths.less, gulp.series(['less']));
 });
