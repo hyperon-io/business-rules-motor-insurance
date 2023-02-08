@@ -43,7 +43,7 @@ services:
 
   web:
     container_name: demo
-    image: hyperonio/motor-demo:latest
+    image: hyperonio/motor-demo:2.0-ir-0.1
     environment:
       - HYPERON_DATABASE_URL=jdbc:h2:tcp://db/hyperon.demo
     ports:
